@@ -147,7 +147,7 @@
     </style>
 </head>
 <body>
-    <button onclick="showMessage()">💘 E Click ko para mabalan nimo. 💘</button>
+    <button onclick="showMessage()">💘 Click Me for a Romantic Surprise 💘</button>
 
     <!-- Modal -->
     <div id="modal" class="modal">
@@ -159,20 +159,33 @@
                 <span></span>
                 <span></span>
             </div>
+            <audio id="romanticSong" preload="auto">
+                <source src="dionela-marilag-lyrics_yyWbAAxE.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>            
             <p>ikaw ang bugtong itik na nagkapakapa sa malapokon kong dughan ug ikaw ang ting ting sa nag ga bagting sa akong kasing kasing ug saksi ang mga unggoy nga naglangoy langoy gilid sa hagunoy sa akong gugmang ikaw ra ang gi ila.</p>
-            <p>Emmanuel Ayco Diay Malakas tumalon Malalim Bumaon😂😂.</p>
+            <p>Emmanuel Ayco diay malakas tumalon malalim bumaon.</p>
             <button onclick="closeModal()">Close</button>
         </div>
     </div>
 
     <script>
         function showMessage() {
-            const modal = document.getElementById("modal");
-            modal.style.display = "flex";
-        }
+    const modal = document.getElementById("modal");
+    const song = document.getElementById("romanticSong");
+    modal.style.display = "flex";
+    song.play().catch(error => {
+        console.error("Error playing the audio:", error);
+        alert("Audio playback failed. Please check your browser settings or the audio source.");
+    });
+}
+
         function closeModal() {
             const modal = document.getElementById("modal");
+            const song = document.getElementById("romanticSong");
             modal.style.display = "none";
+            song.pause();
+            song.currentTime = 0;
         }
     </script>
 </body>
