@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Surprise</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to bottom right, #ffb3b3, #ffe6e6, #fff5f5);
+            background-image: url('https://source.unsplash.com/featured/?romantic,couple');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: rgba(255, 99, 132, 0.8);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: rgba(255, 69, 90, 0.9);
+            transform: scale(1.1);
+        }
+        button:active {
+            background-color: rgba(200, 40, 60, 0.9);
+            transform: scale(1);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            position: relative;
+            background: linear-gradient(to bottom, #ffccd5, #ffe6ea);
+            color: #333;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        .modal-content p {
+            margin: 20px 0;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #c62828;
+        }
+        .modal-content button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: rgba(255, 99, 132, 0.8);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .modal-content button:hover {
+            background-color: rgba(255, 69, 90, 0.9);
+        }
+        /* Heart Animation */
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .hearts span {
+            position: absolute;
+            bottom: -50px;
+            width: 15px;
+            height: 15px;
+            background: rgba(255, 105, 135, 0.8);
+            border-radius: 50%;
+            animation: float 3s infinite ease-in-out;
+        }
+        .hearts span:before, .hearts span:after {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: rgba(255, 105, 135, 0.8);
+            border-radius: 50%;
+        }
+        .hearts span:before {
+            top: -10px;
+            left: 0;
+        }
+        .hearts span:after {
+            left: -10px;
+            top: 0;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-300px) scale(0.8);
+                opacity: 0;
+            }
+        }
+        .hearts span:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+        .hearts span:nth-child(2) {
+            left: 30%;
+            animation-delay: 0.5s;
+        }
+        .hearts span:nth-child(3) {
+            left: 50%;
+            animation-delay: 1s;
+        }
+        .hearts span:nth-child(4) {
+            left: 70%;
+            animation-delay: 1.5s;
+        }
+        .hearts span:nth-child(5) {
+            left: 90%;
+            animation-delay: 2s;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="showMessage()">💘 E Click ko para mabalan nimo. 💘</button>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="hearts">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <p>ikaw ang bugtong itik na nagkapakapa sa malapokon kong dughan ug ikaw ang ting ting sa nag ga bagting sa akong kasing kasing ug saksi ang mga unggoy nga naglangoy langoy gilid sa hagunoy sa akong gugmang ikaw ra ang gi ila.</p>
+            <p>Emmanuel Ayco Diay Malakas tumalon Malalim Bumaon😂😂.</p>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function showMessage() {
+            const modal = document.getElementById("modal");
+            modal.style.display = "flex";
+        }
+        function closeModal() {
+            const modal = document.getElementById("modal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
